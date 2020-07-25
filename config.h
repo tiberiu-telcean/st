@@ -5,14 +5,12 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-/* Spare fonts */
-static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+static char *font = "DejaVu Sans Mono for Powerline:pixelsize=15:antialias=true:autohint=false";
+static char *font2[] = {	
+	"Hack Nerd Font Mono:pixelsize=15:antialias=true:autohint=true",
+	"Symbola:pixelsize=15:antialias=true:autohint=true"
 };
-
-static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -22,7 +20,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/usr/bin/fish";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -197,7 +195,7 @@ static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
-	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
+	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },	
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
@@ -207,8 +205,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
